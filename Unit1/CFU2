@@ -1,0 +1,6 @@
+first= input("Hey what is your first name?")
+last= input("What is your last name?")
+age= int(input("How old are you?"))
+long= int(input("How many years have you been going to school for?"))
+
+print("Hi" + " " + first + " " + last + "!" + " " + "So you are" + " " + str(age) + " " + "years old." + " " + str(long) + " " + "years is a long time you have been in school for. Hopefully you like it there!")
