@@ -1,0 +1,18 @@
+first= input("What is your first name?")
+last= input("What is your last name?")
+
+print("Hi nice to have you here",first + " " + last)
+
+a= int(input("Please enter your lucky number:"))
+b= int(input("Please enter another number:"))
+
+print(str(a) + "+" + str(b) + " " + "=")
+print(a + b)
+print(str(a) + "-" + str(b) + " " + "=")
+print(a - b)
+print(str(a) + "X" + str(b) + " " + "=")
+print(a * b)
+print(str(a) + "/" + str(b) + " " + "=")
+print(a / b)
+print(str(a) + "%" + str(b) + " " + "=")
+print(a % b)
