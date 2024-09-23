@@ -1,11 +1,16 @@
 import math
-user= input("What's your first name?")
-a= int(input("Choose a coefficient for a"))
-b= int(input("Choose a coefficient for b"))
-c= int(input("Choose a coefficient for c"))
+name= input("What's your name?")
+a= int(input("Please enter any a value"))
+b= int(input("Please enter any b value"))
+c= int(input("Please anter any c value"))
 
-count= 4*a*c
-sub= (b**2)-count
-squareRoot = math.sqrt(sub)
-count2= -b +- squareRoot
-count3= count2 / 2*a
+calc1= 4 * a * c
+calc2= b ** 2 - calc1
+square= math.sqrt(calc2)
+ 
+b2= -b
+add= (b2 + square)/(2*a)
+subtract= (b2 - square)/(2*a)
+
+print(str(a)+"x^2","+",str(b)+"x","+",str(c)+":","x="+str(add),"&","x="+str(subtract))
+                        
