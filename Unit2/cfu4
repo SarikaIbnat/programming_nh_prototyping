@@ -1,0 +1,11 @@
+import math
+user= input("What's your first name?")
+a= int(input("Choose a coefficient for a"))
+b= int(input("Choose a coefficient for b"))
+c= int(input("Choose a coefficient for c"))
+
+count= 4*a*c
+sub= (b**2)-count
+squareRoot = math.sqrt(sub)
+count2= -b +- squareRoot
+count3= count2 / 2*a
