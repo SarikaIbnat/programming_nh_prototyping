@@ -1,0 +1,19 @@
+pennies= int(input("How many pennies do you have? "))
+nickels= int(input("How many nickels do you have? "))
+dimes= int(input("How many dimes do you have? "))
+quarters= int(input("How many quarters do you have? "))
+loonies= int(input("How many loonies do you have? "))
+toonies= int(input("How many toonies do you have? "))
+
+final_p= pennies * 1
+final_n= nickels * 5
+final_d= dimes *10
+final_q= quarters* 25
+final_l= loonies*100
+final_t= toonies*200
+
+total_count= final_p + final_n + final_d + final_q + final_l + final_t
+dollars= total_count // 100
+cents= total_count % 100
+
+print("Yippe you have $" + str(dollars)+"."+str(cents))
