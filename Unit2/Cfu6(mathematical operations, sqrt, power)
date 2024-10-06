@@ -1,0 +1,26 @@
+import math
+import random
+
+print("Welcome to the Random Number Calculator!")
+print("I will generate a number between 1 and 100.")
+
+generated_num= random.randint(1, 100)
+enter_num= int(input("Please enter a number:"))
+add= generated_num + enter_num
+difference= generated_num - enter_num
+product= generated_num * enter_num
+quotient= generated_num / enter_num
+remainder= generated_num % enter_num
+ 
+
+print("Results: ")
+print("Random Number: "+str(generated_num))
+print("Your Number: "+str(enter_num))
+print("Sum: "+ str(generated_num) + " + " + str(enter_num)+" = "+ str(add))
+print("Difference: "+ str(generated_num) + " - " + str(enter_num)+" = "+ str(difference))
+print("Product: "+ str(generated_num) + " X " + str(enter_num)+" = "+ str(product))
+print("Quotient: "+ str(generated_num) + " / " + str(enter_num)+" = "+ str(quotient))
+print("Remainder: "+ str(generated_num) + " % " + str(enter_num)+" = "+ str(remainder))
+
+print("Square Root of Random Number: sqrt("+str(generated_num)+") = "+str(math.sqrt(generated_num)))
+print("Your Number to the Power of Random Number: "+str(enter_num)+"^"+str(generated_num)+" = "+str(math.pow(enter_num, generated_num)))
