@@ -1,0 +1,8 @@
+num = int(input("Give me a number: "))
+if num > 5:
+    print("Greater than 5!")
+elif num < 0:
+    print("This number is a negative!")
+    
+else:
+    print("This number is between 0 and 5")
