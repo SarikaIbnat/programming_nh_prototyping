@@ -1,0 +1,10 @@
+delivery= input("Did you order delivery?")
+
+if delivery=="yes":
+    cost= int(input("How much money for the food?"))
+    split= int(input("How many people are splitting the order?"))
+    calc= cost / split
+    print("The cost per person is "+str(calc))
+    
+else:
+    print("NO?! So who is cooking?")
