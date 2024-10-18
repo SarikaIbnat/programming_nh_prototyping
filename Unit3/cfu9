@@ -1,0 +1,19 @@
+rolls= int(input("How many rolls do you want to play?"))
+
+import random
+def game_times():
+    guess= int(input("Pick a number from 1 to 6"))
+    x= random.randint(1,6)
+    print(x)
+    points=0
+    if guess == x:
+        points= points + 6
+    else:
+        points= points - 1
+    print("Your total score is " + str(points) + " points")
+    
+for _ in range(rolls):
+    game_times()
+
+       
+      
