@@ -1,6 +1,6 @@
 password = "simonsnyc"
 user_input= input("Enter password") 
-if user_input == "simonsnyc":
-    print("Correct! You may enter")
-else: 
-    print("Wrong Password")
+while user_input != user_input:
+    print("Wrong Password!")
+    user_input= input("Enter Passcode: ")
+print("Correct! You may enter...")
