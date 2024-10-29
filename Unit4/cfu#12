@@ -1,0 +1,6 @@
+password = "simonsnyc"
+user_input= input("Enter password") 
+if user_input == "simonsnyc":
+    print("Correct! You may enter")
+else: 
+    print("Wrong Password")
