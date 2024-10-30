@@ -1,0 +1,28 @@
+def function1():
+    password = "simonsnyc"
+    user_input= input("Enter password") 
+    while password != user_input:
+        print("Wrong Password!")
+        user_input= input("Enter Passcode: ")
+    print("Correct! You may enter...")
+    
+def function2():
+    password = "simonsnyc"
+    user_input= input("Enter password") 
+    num_guess = 0
+    while num_guess < 3 and user_input!=password:
+        print("Wrong Password!")
+        num_guess +=1
+        if num_guess < 3:
+            user_input= input("Enter Password")
+        elif user_input==password:
+            print("Correct! You may enter...")
+    
+        else:
+            print("End")
+            
+choose= int(input("Choose option 1 or 2"))
+if choose==1:
+    function1()
+else:
+    function2()
