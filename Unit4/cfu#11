@@ -1,40 +1,36 @@
-def function1():
+def num():
     for i in range(10, 71, 10):
         print(i)
 
-# Function 2: Prints values of x incremented by 0.5, starting from 0 and up to 10.0
-def function2():
+
+def num2():
     x = 0
     for i in range(21):
         print(x)
         x += 0.5
 
-# Function 3: Prints the "99 Bottles of Beer" song
-def function3():
-    bottle = 99
-    while bottle > 0:
-        if bottle == 1:
-            print(f"{bottle} bottle of beer on the wall, {bottle} bottle of beer.")
-        else:
-            print(f"{bottle} bottles of beer on the wall, {bottle} bottles of beer.")
-        
-        bottle -= 1
 
-        if bottle == 1:
-            print(f"Take one down and pass it around, {bottle} bottle of beer on the wall.\n")
-        elif bottle > 0:
-            print(f"Take one down and pass it around, {bottle} bottles of beer on the wall.\n")
+def beer_bottle():
+    for bottles in range(99, 0, -1):
+        if bottles > 1:
+            print(str(bottles) + " bottles of beer on the wall, " + str(bottles) + " bottles of beer.")
+            bottles-=1
+            print("Take one down, pass it around, " + str(bottles) + " bottles of beer on the wall.")
+            print()  
         else:
-            print("Take one down and pass it around, no more bottles of beer on the wall.\n")
+            print(str(bottles) + " bottle of beer on the wall, " + str(bottles) + " bottle of beer.")
+            print("Take one down, pass it around, no more bottles of beer on the wall.")
+            print()  
 
-def user():
-    user_choose = int(input("Choose 1, 2 or 3"))
+
+
+def main():
+    user_choose = int(input("Choose if you want to run 1, 2 or 3"))
     if user_choose==1:
-        function1()
+        num()
     elif user_choose==2:
-        function2()
+        num2()
     else:
-        function3()
+        beer_bottle()
     
-user()
-    
+main()
