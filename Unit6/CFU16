@@ -1,0 +1,26 @@
+'''Sarika Ibnat
+11/30/24
+Creating a smiley face using only polygons'''
+
+import simplegui
+
+def draw_handler(canvas):
+    #canvas.draw_circle(centerXY, radius, line_width, color) 
+    canvas.draw_circle((100, 100), 80, 3, "yellow")
+    canvas.draw_circle((70, 67), 5, 2, "black", "black")
+    canvas.draw_circle((130, 67), 5, 2, "black", "black")
+    canvas.draw_circle((70, 65), 14, 2, "brown")
+    canvas.draw_circle((130, 65), 14, 2, "brown")
+    canvas.draw_circle((100, 129), 10, 2, "red", "red")
+    canvas.draw_circle((60, 108), 6, 2, "red", "red")
+    canvas.draw_circle((140, 108), 6, 2, "red", "red")
+    canvas.draw_circle((70,116), 8, 2, "red", "red")
+    canvas.draw_circle((130, 116), 8, 2, "red", "red")
+    canvas.draw_circle((80, 126), 8, 2, "red", "red")
+    canvas.draw_circle((120, 126), 8, 2, "red", "red")
+    
+
+frame = simplegui.create_frame("CFU 16 Happy circle", 200, 200)
+frame.set_canvas_background("white")
+frame.set_draw_handler(draw_handler)
+frame.start()
