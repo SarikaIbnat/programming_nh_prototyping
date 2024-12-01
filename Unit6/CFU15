@@ -1,0 +1,17 @@
+'''Sarika Ibnat
+11/28/24
+Creating a smiley face using only polygons'''
+
+import simplegui
+
+def draw_handler(canvas):
+    #canvas.draw_polygon([(x,y), (x1y1), (x2y2), (x3,y3)], line_width, color)
+    canvas.draw_polygon([(40, 40), (70, 60), (40, 80), (40, 40)], 2, "blue")
+    canvas.draw_polygon([(150, 40), (120, 60), (150,80), (150, 40)], 2, "blue")
+    
+    canvas.draw_polygon([(40,110), (95, 130), (150, 110), (40, 110)], 2, "red")
+
+frame = simplegui.create_frame("CFU 15 Happy Shapes", 200, 200)
+frame.set_canvas_background("white")
+frame.set_draw_handler(draw_handler)
+frame.start()
