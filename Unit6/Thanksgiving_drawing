@@ -23,11 +23,12 @@ def draw(canvas):
         #draw a turkey
        
        canvas.draw_circle((500, 250), 60, 3, "Brown", "Brown")  # Main body
-       canvas.draw_circle((450, 230), 20, 3, "Brown", "Brown")  
-       canvas.draw_circle((550, 230), 20, 3, "Brown", "Brown")  
-       canvas.draw_line((450, 220), (420, 185), 8, "White")
-       canvas.draw_line((550, 220), (580, 185), 8, "White")
-       canvas.draw_point((500, 250), "Black")
+       canvas.draw_circle((450, 230), 20, 3, "Brown", "Brown") #left leg 
+       canvas.draw_circle((550, 230), 20, 3, "Brown", "Brown")  #right leg
+       canvas.draw_line((450, 220), (420, 185), 8, "White")    #bones
+       canvas.draw_line((550, 220), (580, 185), 8, "White")    #bones
+        #seasoning
+       canvas.draw_point((500, 250), "Black") 
        canvas.draw_point((450, 250), "Black")
        canvas.draw_point((400, 240), "Black")
        canvas.draw_point((600, 250), "Black")
