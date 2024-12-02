@@ -18,7 +18,18 @@ def draw(canvas):
        canvas.draw_polygon([(220, 150), (220, 120), (235, 120), (235, 150)], 2, "Green", "Limegreen")
        canvas.draw_polygon([(220, 120), (227.5, 112), (227.5, 120)], 2, "Green", "Green")
        canvas.draw_polygon([(235, 120), (227.5, 112), (227.5, 120)], 2, "Green", "Green")
-    
+
+       #draw a turkey
+       canvas.draw_point((400, 200), "Blue")
+       canvas.draw_point((401, 201), "Blue")
+       canvas.draw_point((402, 202), "Blue")
+       canvas.draw_point((403, 203), "Blue")
+       canvas.draw_point((403, 204), "Blue")
+       canvas.draw_point((404, 205), "Blue")
+       canvas.draw_point((400, 199), "Blue")
+       canvas.draw_point((401, 199), "Blue")
+       canvas.draw_point((402, 199), "Blue")
+       canvas.draw_point((403, 200), "Blue")
 # Assign draw handler to the frame
 frame.set_canvas_background("white")
 frame.set_draw_handler(draw)
