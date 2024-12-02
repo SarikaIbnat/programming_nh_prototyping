@@ -15,8 +15,9 @@ def draw(canvas):
        canvas.draw_circle((227, 202), 50, 5, "Brown", "Orange")
        
        #drawing leaves
-       
-       canvas.draw_polygon([(220, 150), (220, 120), (235, 120), (235, 150)], 2, "Green")
+       canvas.draw_polygon([(220, 150), (220, 120), (235, 120), (235, 150)], 2, "Green", "Limegreen")
+       canvas.draw_polygon([(220, 120), (227.5, 112), (227.5, 120)], 2, "Green", "Green")
+       canvas.draw_polygon([(235, 120), (227.5, 112), (227.5, 120)], 2, "Green", "Green")
     
 # Assign draw handler to the frame
 frame.set_canvas_background("white")
