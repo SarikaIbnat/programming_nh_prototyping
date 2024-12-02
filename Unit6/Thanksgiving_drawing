@@ -16,6 +16,7 @@ def draw(canvas):
        
        #drawing leaves
        
+       canvas.draw_polygon([(220, 150), (220, 120), (235, 120), (235, 150)], 2, "Green")
     
 # Assign draw handler to the frame
 frame.set_canvas_background("white")
