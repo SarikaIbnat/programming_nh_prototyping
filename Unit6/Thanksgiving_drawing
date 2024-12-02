@@ -1,0 +1,25 @@
+#Sarika Ibnat
+#12/1/24
+#Thanksgiving Drawing
+
+import simplegui
+frame = simplegui.create_frame("Thanksgiving Drawing", 600, 400)
+def draw(canvas):
+       #drawing pumpkin
+       canvas.draw_circle((300, 200), 50, 5, "Brown", "Orange")
+       canvas.draw_circle((270, 202), 50, 5, "Brown", "Orange")
+       canvas.draw_circle((240, 204), 50, 5, "Brown", "Orange")
+       canvas.draw_circle((165, 198), 50, 5, "Brown", "Orange")
+       canvas.draw_circle((190, 200), 50, 5, "Brown", "Orange")
+       canvas.draw_circle((215, 202), 50, 5, "Brown", "Orange")
+       canvas.draw_circle((227, 202), 50, 5, "Brown", "Orange")
+       
+       #drawing leaves
+       
+    
+# Assign draw handler to the frame
+frame.set_canvas_background("white")
+frame.set_draw_handler(draw)
+
+# Start the frame
+frame.start()
