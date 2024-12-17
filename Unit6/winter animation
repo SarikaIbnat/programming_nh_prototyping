@@ -7,6 +7,8 @@ global y1
 y1=0
 global y2
 y2=0
+global y3
+y3=0
 def snow(canvas):
     global y
     y=y+3
@@ -43,7 +45,11 @@ def decor(canvas):
         y2+=3
     canvas.draw_circle((150, y2), 10, 1, "purple", "purple")
     canvas.draw_circle((347, y2), 10, 1, "yellow", "yellow")
-    
+    global y3
+    if y3<323:
+        y3+=3
+    canvas.draw_circle((90 ,y3), 12, 1, "Lightgreen", "Lightgreen")
+    canvas.draw_circle((400, y3), 12, 1, "pink", "pink")
 def draw(canvas):
     # Xmas Tree
     
