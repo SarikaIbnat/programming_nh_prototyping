@@ -50,6 +50,16 @@ def decor(canvas):
         y3+=3
     canvas.draw_circle((90 ,y3), 12, 1, "Lightgreen", "Lightgreen")
     canvas.draw_circle((400, y3), 12, 1, "pink", "pink")
+    if y3>323:
+        canvas.draw_line((350, 330), (350, 450), 75, "#E75480")
+        canvas.draw_line((370, 330), (370, 450), 2, "#D90166")
+        canvas.draw_line((345, 330), (345, 450), 2, "#D90166")
+        
+        canvas.draw_line((330, 450), (330, 400), 100, "red")
+        canvas.draw_line((320, 450), (320, 400), 2, "green")
+        canvas.draw_line((340, 450), (340, 400), 2, "green")
+        canvas.draw_line((310, 450), (310, 400), 2, "green")
+        canvas.draw_line((350, 450), (350, 400), 2, "green")
 def draw(canvas):
     # Xmas Tree
     
