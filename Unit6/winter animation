@@ -1,17 +1,43 @@
 import simplegui
+global y
+y= 25
+global star
+star=0
 
-
+def snow(canvas):
+    global y
+    y=y+5
+    canvas.draw_circle((100, y), 10, 1, "blue", "White")
+    canvas.draw_circle((200, y), 10, 1, "blue", "white")
+    canvas.draw_circle((300, y), 10, 1, "blue", "white")
+    canvas.draw_circle((400, y), 10, 1, "blue", "white")
+    canvas.draw_circle((500, y), 10, 1, "blue", "white")
+    
+    if y>600:
+        frame.set_canvas_background("#CDB891")
+        decor(canvas)
+        
+def decor(canvas):
+    global star
+    if star<250:
+        star+=5
+    
+    canvas.draw_polygon([(star, 100), (star+20, 85), (star, 75), (star-20, 85), (star, 100)], 2, "black")
 def draw(canvas):
     # Xmas Tree
     canvas.draw_line((250, 100), (250, 500), 3, "black")
-    canvas.draw_polygon([(250, 100), (195, 175), (250, 175)], 2, "green")
-    canvas.draw_polygon([(205, 175), (145, 245), (250, 245), (250, 175)], 2, "green")
-    canvas.draw_polygon([(165, 245), (95, 322), (250, 322), (250, 245)], 2, "green")
-    canvas.draw_polygon([(250, 100), (305, 175), (250, 175)], 2, "green")
-    canvas.draw_polygon([(295, 175), (355, 245), (250, 245), (250, 175)], 2, "green")
-    canvas.draw_polygon([(328, 245), (405, 322), (250, 322), (250, 245)], 2, "green")
+    canvas.draw_polygon([(250, 100), (195, 175), (250, 175)], 2, "green", "green")
+    canvas.draw_polygon([(205, 175), (145, 245), (250, 245), (250, 175)], 2, "green", "green")
+    canvas.draw_polygon([(165, 245), (95, 322), (250, 322), (250, 245)], 2, "green", "green")
+    canvas.draw_polygon([(250, 100), (305, 175), (250, 175)], 2, "green", "green")
+    canvas.draw_polygon([(295, 175), (355, 245), (250, 245), (250, 175)], 2, "green", "green")
+    canvas.draw_polygon([(328, 245), (405, 322), (250, 322), (250, 245)], 2, "green", "green")
     #stem
     canvas.draw_line((250, 323), (250, 500), 25, "Brown")
+    
+    snow(canvas)
+    
+    
 frame = simplegui.create_frame("Winter Wonderland Animation", 600, 600)
 frame.set_canvas_background("Lightblue")
 frame.set_draw_handler(draw)
