@@ -1,0 +1,12 @@
+#Sarika Ibnat
+#Unit 7
+#12/19/24
+favorites= ["cheeseburger", 6, 2.5, "kitty"]
+print(favorites[0])
+groceries= ["Eggs", "Apples", "Milk", "Bread", "Candy"]
+print(groceries[4])
+people= ["Evelyn", "Sheldon", "Angel", "Amelia", "Grace", "Nibrus"]
+
+donation=["candy", "cupcake", "cookies", "pretzels", "sour patch", "cupcake"]
+for i in range(6):
+    print(f"{people[i]} will bring {donation[i]}.")
