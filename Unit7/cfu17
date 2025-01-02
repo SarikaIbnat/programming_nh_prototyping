@@ -1,0 +1,30 @@
+'''Sarika Ibnat
+5 and 6
+1/2/2025
+CFU 17 review + BuidIn Functions'''
+
+box= "LoliPop"
+def formating(box):
+    userInput= int(input("Choice? (1,2,3,4,5,6,7)"))
+    if userInput == 1:
+        #Capitalize the first letter of the string
+        print(box.capitalize())
+    elif userInput == 2:
+        #find and return the position of a value in the string
+        print(box.find("i"))
+    elif userInput == 3:
+        #return true if the variable is a number
+        print(box.isdigit())
+    elif userInput == 4:
+        #output the variable all lowercase
+        print(box.lower())
+    elif userInput == 5:
+        #output the variable all uppercase
+        print(box.upper())
+    elif userInput == 6:
+        #replace an index item for another item
+        print(box.replace("o", "i"))
+    else:
+        print("not a valid option")
+    
+formating(box)
