@@ -1,0 +1,12 @@
+groceries=["Eggs", "Apples", "Milk", "Bread"]
+print(groceries [0:3])
+names= ["Nibrus", "Hailey", "Marisa", "Malachi", "Nafisa", "Amelia", "Evelyn", "Cesar", "Sharena", "Aarya", "Farhan", "Edwin", "Syeda", "Romina", "Arafath", "Fahim", "William"]
+ages= [16.1, 16.11, 16.11, 16.5, 16.7, 16.3, 16.4, 16.11, 16.4, 16.7, 16.8, 16.6, 16.6, 17.7, 16.5, 16.5, 16.11]
+print(names[4:7])
+print("My friend", names[3:8], "is", ages[3:8], "years old")
+for item in groceries:
+    print("I need to buy", item)
+
+for i in range(len(ages)):
+    print("My friend", names[i], "is", ages[i], "years old")
+    
