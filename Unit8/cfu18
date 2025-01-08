@@ -1,0 +1,40 @@
+'''Sarika Ibnat
+1/7/25
+cfu #18'''
+#version 1
+print("version 1")
+total=0
+prices= [1.95, 4.5, 0.99, 5.99]
+
+for cost in range(len(prices)):
+    total= total+prices[cost]
+print(total)
+
+#version 2
+print("version 2")
+total=0
+prices= []
+q1= int(input("How many prices do you want to add: "))
+for _ in range(q1):
+    enter= float(input("Enter the price: "))
+    total= total+enter
+print("total amount", total)
+
+#version 3
+item=[]
+
+total=0
+prices= []
+q1= int(input("How many times do you want to add: "))
+for _ in range(q1):
+    enter_1= input("Enter an item: ")
+    item.append(enter_1)
+    
+    enter_2= float(input("Enter the price: "))
+    prices.append(enter_2)
+    
+    total= total+enter_2
+
+for i in range(len(item)):
+    print(item[i], "is", str(prices[i]))
+print("the total is", str(total))
