@@ -1,0 +1,9 @@
+
+#version 2
+total=0
+prices= []
+q1= int(input("How many prices do you want to add: "))
+for _ in range(q1):
+    enter= float(input("Enter the price: "))
+    total= total+enter
+print("total amount", total)
