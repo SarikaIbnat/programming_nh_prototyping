@@ -1,0 +1,18 @@
+#version 3
+item=[]
+
+total=0
+prices= []
+q1= int(input("How many times do you want to add: "))
+for _ in range(q1):
+    enter_1= input("Enter an item: ")
+    item.append(enter_1)
+    
+    enter_2= float(input("Enter the price: "))
+    prices.append(enter_2)
+    
+    total= total+enter_2
+
+for i in range(len(item)):
+    print(item[i], "is", str(prices[i]))
+print("the total is", str(total))
