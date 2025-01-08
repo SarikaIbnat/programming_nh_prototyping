@@ -1,0 +1,11 @@
+'''Sarika Ibnat
+1/7/25
+cfu #18'''
+#version 1
+print("version 1")
+total=0
+prices= [1.95, 4.5, 0.99, 5.99]
+
+for cost in range(len(prices)):
+    total= total+prices[cost]
+print(total)
