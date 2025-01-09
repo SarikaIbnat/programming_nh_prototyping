@@ -15,7 +15,7 @@ print("version 2")
 total=0
 prices= []
 q1= int(input("How many prices do you want to add: "))
-for _ in range(q1):
+for y in range(q1):
     enter= float(input("Enter the price: "))
     total= total+enter
 print("total amount", total)
@@ -26,7 +26,7 @@ item=[]
 total=0
 prices= []
 q1= int(input("How many times do you want to add: "))
-for _ in range(q1):
+for x in range(q1):
     enter_1= input("Enter an item: ")
     item.append(enter_1)
     
