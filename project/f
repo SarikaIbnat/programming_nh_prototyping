@@ -2,8 +2,8 @@ import simplegui
 import random
 u= 0
 
-r= random.randint(550%50==0)
-p= random.randint(350%50==0)
+r= random.randint(1, 10) *50
+p= random.randint(1, 7) *50
 # Global variables to control the flow between screens and player's position
 a = 0
 width = 150  # Initial position of the player (horizontal position)
@@ -29,15 +29,15 @@ def human(canvas, width, height, color):
     canvas.draw_line([width, height+55], [width-13, height+64], 1.5, color)
 # Function to draw the player (person)
 def player(canvas, l, m, s):
-    human(canvas, width, height, color)
+    human(canvas, width, height, "color")
 
 # Function to display screen 1 (player)
 def screen1(canvas):
     frame.set_canvas_background("Lightgreen")
     canvas.draw_polygon([(487, 369), (513, 369), (513, 364), (487, 364)], 2, "yellow", "yellow")
     canvas.draw_polygon([(487, 64), (513, 64), (500, 35)], 2, "blue", "Lightblue")
-    player(canvas, width, height, grey)
-    check_position()
+    player(canvas, width, height, "grey")
+    check_position(canvas)
 # Function for moving the player to the right
 def right():
     global width
@@ -67,19 +67,19 @@ def draw(canvas):
     text(canvas)
 
 def imposter(canvas, v, c, i):
-    human(canvas, width, height, color)
+    human(canvas, width, height, "color")
     
     
 def good_person(canvas, f, g, q):
-    human(canvas, width, height, color)
+    human(canvas, width, height, "color")
     
 
 def check_position(canvas):
     global target_x
     global target_y
     if abs(target_x-width)<=15 and abs(target_y-height)<=15:
-        good_person(canvas, r, 300, white)
-        imposter(canvas, 150, p, red)
+        good_person(canvas, r, 300, "white")
+        imposter(canvas, 150, p, "red")
         canvas.draw_text("Give water to the impoverished. Red is usually a sign of danger", (50, 50), 10, "black")
         position2(canvas)
      
