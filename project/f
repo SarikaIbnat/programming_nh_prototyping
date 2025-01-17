@@ -22,6 +22,9 @@ frame_height = 400
 a = 0  # Used to track if the game has started
 hint_shown = False  # Track if the hint has been shown
 game_started = False  # Flag to indicate if the game is running
+level2_started = False  # Flag to indicate if Level 2 is started
+level2_button_added = False  # Flag to track if "Level 2" button has been added
+level2_text_shown = False  # Flag to track if Level 2 introductory text has been shown
 
 def human(canvas, width, height, color):
     # Draw head of the person
@@ -44,7 +47,8 @@ def screen1(canvas):
     canvas.draw_polygon([(487, 369), (513, 369), (513, 364), (487, 364)], 2, "yellow", "yellow")
     canvas.draw_polygon([(487, 64), (513, 64), (500, 35)], 2, "blue", "Lightblue")
     player(canvas)
-    check_position(canvas)
+    check_position(canvas)  # Only check the position after reaching water
+    position2(canvas)  # Call position2 to check win/lose conditions after reaching water
 
 def right():
     global width
@@ -78,7 +82,11 @@ def text(canvas):
             imposter(canvas)
 
 def draw(canvas):
-    text(canvas)
+    # Check if Level 2 is started, if so, call the track_2 function
+    if level2_started:
+        track_2(canvas)  # Call track_2 to handle Level 2 screen
+    else:
+        text(canvas)
 
 def imposter(canvas):
     # Draw the imposter at the specified position
@@ -89,23 +97,56 @@ def good_person(canvas):
     human(canvas, r, 300, "white")
 
 def check_position(canvas):
-    global target_x, target_y, game_started
+    global target_x, target_y, width, height, game_started
     if abs(target_x - width) <= 15 and abs(target_y - height) <= 15:
-        # The player has reached the target, start the game and show the hint
+        # The player has reached the target (water)
         game_started = True
-        canvas.draw_text("Give water to the impoverished. Red is usually a sign of danger", (50, 50), 10, "black")
+        canvas.draw_text("Give water to the good one. Red is usually a sign of danger", (140, 100), 17, "black")
         # No need to show hint anymore, characters are drawn continuously now
-        position2(canvas)
+
+def track_2(canvas):
+    global level2_text_shown
+    frame.set_canvas_background("Lightgreen")
+    
+    if not level2_text_shown:
+        # Show introductory text for Level 2 only once
+        canvas.draw_text("Level 2", (75, 100), 30, "red")  # Show the message for Level 2
+        canvas.draw_text("Reach the bread and avoid the imposter!", (75, 150), 20, "black")
+        frame.set_canvas_background("Light")
+        level2_text_shown = True  # Mark that Level 2 introductory text has been shown
+    
+    # Continue with Level 2 logic (screen1 logic, draw characters, check positions)
+    screen1(canvas)  # Draw all the elements like in screen1 (player, good person, imposter, etc.)
+
+def level2():
+    global level2_started
+    level2_started = True  # Indicate that Level 2 is starting
+
+    # Remove the "Level 2" button after it is clicked
+    
+
+    # At this point, the draw function will handle the transition to Level 2
+    # Track_2 function will be called automatically due to the level2_started flag
 
 def position2(canvas):
-    # Win and lose conditions
-    if abs(r - width) <= 15 and abs(300 - height) <= 15:
-        frame.set_canvas_background("Black")
-        canvas.draw_text("You Win!", (75, 150), 30, "white")
+    global width, height, r, p, game_started, level2_started
+    if game_started:
+        # Win condition: When player reaches very close to the good person
+        if abs(r - width) <= 7 and abs(300 - height) <= 7:
+            frame.set_canvas_background("Black")
+            canvas.draw_text("You Win!", (75, 150), 30, "white")
+            
+            # Add the Level 2 button only once after winning Level 1
+            global level2_button_added
+            if not level2_button_added:
+                frame.add_button("Level 2", level2, 100)  # Only one button will appear
+                level2_button_added = True  # Set the flag to true so no more buttons are added
+                track_2(canvas)
 
-    if abs(150 - width) <= 15 and abs(p - height) <= 15:
-        frame.set_canvas_background("Black")
-        canvas.draw_text("You Lose, Try Again", (75, 150), 30, "white")
+        # Lose condition: When player reaches very close to the imposter
+        elif abs(150 - width) <= 15 and abs(p - height) <= 15:
+            frame.set_canvas_background("Black")
+            canvas.draw_text("You Lose, Try Again", (75, 150), 30, "white")
 
 # Create the frame
 frame = simplegui.create_frame("Game Project", frame_width, frame_height)
