@@ -44,8 +44,14 @@ def player(canvas):
 
 def screen1(canvas):
     frame.set_canvas_background("Lightgreen")
-    canvas.draw_polygon([(487, 369), (513, 369), (513, 364), (487, 364)], 2, "yellow", "yellow")
-    canvas.draw_polygon([(487, 64), (513, 64), (500, 35)], 2, "blue", "Lightblue")
+    # In Level 2, change the polygon color to brown for the outline and orange for the fill
+    if level2_started:
+        canvas.draw_polygon([(487, 369), (513, 369), (513, 364), (487, 364)], 2, "brown", "orange")  # Modified for Level 2
+        canvas.draw_polygon([(487, 64), (513, 64), (500, 35)], 2, "brown", "orange")  # Modified for Level 2
+    else:
+        canvas.draw_polygon([(487, 369), (513, 369), (513, 364), (487, 364)], 2, "yellow", "yellow")
+        canvas.draw_polygon([(487, 64), (513, 64), (500, 35)], 2, "blue", "Lightblue")
+    
     player(canvas)
     check_position(canvas)  # Only check the position after reaching water
     position2(canvas)  # Call position2 to check win/lose conditions after reaching water
@@ -141,7 +147,6 @@ def position2(canvas):
             if not level2_button_added:
                 frame.add_button("Level 2", level2, 100)  # Only one button will appear
                 level2_button_added = True  # Set the flag to true so no more buttons are added
-                track_2(canvas)
 
         # Lose condition: When player reaches very close to the imposter
         elif abs(150 - width) <= 15 and abs(p - height) <= 15:
