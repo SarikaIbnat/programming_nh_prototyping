@@ -25,14 +25,26 @@ def player(canvas, width, height):
 # Function to display screen 1 (player)
 def screen1(canvas):
     frame.set_canvas_background("Lightgreen")
-    canvas.
+    canvas.draw_polygon([(487, 369), (513, 369), (513, 364), (487, 364)], 2, "yellow", "yellow")
+    canvas.draw_polygon([(487, 64), (513, 64), (500, 35)], 2, "blue", "Lightblue")
     player(canvas, width, height)
 
 # Function for moving the player to the right
 def right():
     global width
-    width += 80  # Move the player to the right by 80 pixels
+    width += 50  # Move the player to the right by 50 pixels
 
+def left():
+    global width
+    width -= 50    
+    
+def up():
+    global height
+    height -=50
+    
+def down():
+    global height
+    height+=50
 # Function to display text on the canvas
 def text(canvas):
     global a
@@ -55,6 +67,9 @@ def next_screen():
     global a
     a = 1  # This will switch to screen1 after the button is clicked
     frame.add_button("Right", right, 100) 
+    frame.add_button("Left", left, 100)
+    frame.add_button("Up", up, 100)
+    frame.add_button("Down", down, 100)
     
 frame.add_button("Start Level 1", next_screen, 150)
 
