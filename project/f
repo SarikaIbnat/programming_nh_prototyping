@@ -1,117 +1,126 @@
 import simplegui
 import random
-u= 0
 
-r= random.randint(1, 10) *50
-p= random.randint(1, 7) *50
-# Global variables to control the flow between screens and player's position
-a = 0
-width = 150  # Initial position of the player (horizontal position)
-height = 300  # Initial vertical position of the player
+# Global variables
+u = 0
+r = random.randint(1, 10) * 50
+p = random.randint(1, 7) * 50
 
-target_x= 500
-target_y= 35
+# Player's initial position
+width = 150
+height = 300
+
+# Target position
+target_x = 500
+target_y = 35
 
 # Frame dimensions
 frame_width = 600
 frame_height = 400
 
-def human(canvas, width, height, color):
-    # Head of person
-    canvas.draw_circle((width, height), 15, 1, color, color)
-    # Body of person
-    canvas.draw_line([width, height+15], [width, height+55], 3, color)
-    # Arm of person
-    canvas.draw_line([width, height+35], [width+13, height+28], 1.5, color)
-    canvas.draw_line([width, height+35], [width-13, height+28], 1.5, color)
-    #legs
-    canvas.draw_line([width, height+55], [width+13, height+64], 1.5, color)
-    canvas.draw_line([width, height+55], [width-13, height+64], 1.5, color)
-# Function to draw the player (person)
-def player(canvas, l, m, s):
-    human(canvas, width, height, "color")
+# Flags
+a = 0  # Used to track if the game has started
+hint_shown = False  # Track if the hint has been shown
+game_started = False  # Flag to indicate if the game is running
 
-# Function to display screen 1 (player)
+def human(canvas, width, height, color):
+    # Draw head of the person
+    canvas.draw_circle((width, height), 15, 1, color, color)
+    # Draw body of the person
+    canvas.draw_line([width, height + 15], [width, height + 55], 3, color)
+    # Draw arms
+    canvas.draw_line([width, height + 35], [width + 13, height + 28], 1.5, color)
+    canvas.draw_line([width, height + 35], [width - 13, height + 28], 1.5, color)
+    # Draw legs
+    canvas.draw_line([width, height + 55], [width + 13, height + 64], 1.5, color)
+    canvas.draw_line([width, height + 55], [width - 13, height + 64], 1.5, color)
+
+def player(canvas):
+    # Draw the player at the current position
+    human(canvas, width, height, "grey")
+
 def screen1(canvas):
     frame.set_canvas_background("Lightgreen")
     canvas.draw_polygon([(487, 369), (513, 369), (513, 364), (487, 364)], 2, "yellow", "yellow")
     canvas.draw_polygon([(487, 64), (513, 64), (500, 35)], 2, "blue", "Lightblue")
-    player(canvas, width, height, "grey")
+    player(canvas)
     check_position(canvas)
-# Function for moving the player to the right
+
 def right():
     global width
-    width += 50  # Move the player to the right by 50 
+    width += 50
 
 def left():
     global width
-    width -= 50    
-    
+    width -= 50
+
 def up():
     global height
-    height -=50
-    
+    height -= 50
+
 def down():
     global height
-    height+=50
-# Function to display text on the canvas
+    height += 50
+
 def text(canvas):
-    global a
+    global a, hint_shown, game_started
     if a == 0:
         canvas.draw_text("Grab the water by using the Buttons to move", (40, 200), 30, "red")
     else:
-        screen1(canvas)  # Once the text is shown, switch to screen1
+        if not hint_shown:
+            # Show the hint once, but keep the game started
+            canvas.draw_text("Red is usually a sign of danger.", (50, 100), 20, "black")
+            hint_shown = True
+        screen1(canvas)
+        if game_started:
+            # Only draw the characters once the game has started
+            good_person(canvas)
+            imposter(canvas)
 
-# Function to handle the drawing process
 def draw(canvas):
     text(canvas)
 
-def imposter(canvas, v, c, i):
-    human(canvas, width, height, "color")
-    
-    
-def good_person(canvas, f, g, q):
-    human(canvas, width, height, "color")
-    
+def imposter(canvas):
+    # Draw the imposter at the specified position
+    human(canvas, 150, p, "red")
+
+def good_person(canvas):
+    # Draw the good person (recipient of water) at the specified position
+    human(canvas, r, 300, "white")
 
 def check_position(canvas):
-    global target_x
-    global target_y
-    if abs(target_x-width)<=15 and abs(target_y-height)<=15:
-        good_person(canvas, r, 300, "white")
-        imposter(canvas, 150, p, "red")
+    global target_x, target_y, game_started
+    if abs(target_x - width) <= 15 and abs(target_y - height) <= 15:
+        # The player has reached the target, start the game and show the hint
+        game_started = True
         canvas.draw_text("Give water to the impoverished. Red is usually a sign of danger", (50, 50), 10, "black")
+        # No need to show hint anymore, characters are drawn continuously now
         position2(canvas)
-     
+
 def position2(canvas):
-    if abs(r-width)<=15 and abs(300-height)<=15:
+    # Win and lose conditions
+    if abs(r - width) <= 15 and abs(300 - height) <= 15:
         frame.set_canvas_background("Black")
         canvas.draw_text("You Win!", (75, 150), 30, "white")
-        
-    if abs(150-width)<=15 and abs(p-width)<=15:
+
+    if abs(150 - width) <= 15 and abs(p - height) <= 15:
         frame.set_canvas_background("Black")
         canvas.draw_text("You Lose, Try Again", (75, 150), 30, "white")
-    
-    
-    
-    
-    
+
 # Create the frame
 frame = simplegui.create_frame("Game Project", frame_width, frame_height)
 frame.set_canvas_background("Black")
 frame.set_draw_handler(draw)
 
-# Creating a button to switch the screen after a delay
 def next_screen():
     global a
     a = 1  # This will switch to screen1 after the button is clicked
-    frame.add_button("Right", right, 100) 
+    frame.add_button("Right", right, 100)
     frame.add_button("Left", left, 100)
     frame.add_button("Up", up, 100)
     frame.add_button("Down", down, 100)
-    
-frame.add_button("Start Level 1", next_screen, 150)
 
+frame.add_button("Start Level 1", next_screen, 150)
 
 # Start the frame
 frame.start()
